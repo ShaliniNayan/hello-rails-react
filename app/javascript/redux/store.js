@@ -1,7 +1,11 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { configureStore } from '@reduxjs/toolkit';
+import greetingReducer from './reducers/greetingSlice';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = configureStore({
+  reducer: {
+    message: greetingReducer,
+  },
+});
 
 export default store;

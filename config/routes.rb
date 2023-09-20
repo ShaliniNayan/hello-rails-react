@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  get 'static/index'
-  get 'random_greeting', to: 'greetings#random_greeting'
-  root 'static#index'
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
+
+  root 'root#index'
+
+  namespace :api do
+    namespace :v1 do
+      get '/greetings/random', to: 'greetings#random'
+    end
+  end  
 end
